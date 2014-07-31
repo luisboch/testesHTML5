@@ -4,7 +4,10 @@
         <title>Box2d</title>
         <meta charset="UTF-8">
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+        
+        <!-- libs -->
+        <!--[if IE]><script type="text/javascript" src="lib/excanvas.js"></script><![endif]-->
+        <script src="js/lib/prototype-1.7.2.0.js"></script>
 
         <!-- box2djs -->
         <script src='js/box2d/common/b2Settings.js'></script>
@@ -71,8 +74,25 @@
         <script src='js/box2d/dynamics/joints/b2PulleyJointDef.js'></script>
         <script src='js/box2d/dynamics/joints/b2RevoluteJoint.js'></script>
         <script src='js/box2d/dynamics/joints/b2RevoluteJointDef.js'></script>
+        <script src='js/lib/JQuery/jquery-2.1.1.min.js'></script>
+
+        <script src="js/game.js" ></script>
+        <script src="js/world.js" ></script>
+        <script src="js/utils/utils.js" ></script>
+        <script src="js/config/config.js" ></script>
+        <script src="js/player.js" ></script>
+        <style>
+            body{
+                background: #666666;
+            }
+            
+            #container{
+                background: #010bc5;
+            }
+        </style>
     </head>
     <body>
-        <div>TODO write content</div>
+        <div>BOX2d Testes</div>
+        <canvas id="container"  width="1000" height="800"></canvas>
     </body>
 </html>
