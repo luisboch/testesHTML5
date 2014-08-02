@@ -1,5 +1,5 @@
 jQuery.noConflict();
-
+var jump;
 jQuery(document).ready(function() {
 
     var canvas = jQuery('#container').get(0);
@@ -13,19 +13,27 @@ jQuery(document).ready(function() {
 
     GWorld.setup();
     GWorld.init();
+    KeyBoard.setup();
 
     var player =
-            GUtils.createBox(GWorld.b2d.world, canvasWidth / 2 - 5, canvasHeight / 2 - 08.5, 10, 17.0, false);
+            GUtils.createPlayer(GWorld.b2d.world, canvasWidth / 2 - 5, canvasHeight / 2 - 8.5, 10, 17.0, false);
     GWorld.player = new Player();
     GWorld.player.b2d.element = player;
-    
-    
 
+    GWorld.counter = 0
     GWorld.handler(function() {
+
         if (GConfig.DEBUG) {
             context.clearRect(0, 0, canvasWidth, canvasHeight);
             GUtils.debugWorld(GWorld.b2d.world, context);
         }
+        
+//        if (counter % 50 === 0) {
+//            var pos = GWorld.player.b2d.element.m_position;
+//            console.log("Player pos X:" + pos.x + ", Y" + pos.y);
+//        }
+
+        GWorld.counter++;
     });
 
     jQuery('#container').click(function(evt) {

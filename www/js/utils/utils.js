@@ -22,7 +22,19 @@ GUtils.createBox = function(world, x, y, width, height, fixed) {
     boxBd.AddShape(boxSd);
     boxBd.position.Set(x, y);
     return world.CreateBody(boxBd);
-    
+};
+
+GUtils.createPlayer = function(world, x, y, width, height) {
+
+    var boxSd = new b2BoxDef();
+    boxSd.restitution = 0;
+    boxSd.density = 1.0;
+    boxSd.extents.Set(width, height);
+    var boxBd = new b2BodyDef();
+    boxBd.AddShape(boxSd);
+    boxBd.position.Set(x, y);
+
+    return world.CreateBody(boxBd);
 };
 
 GUtils.createBall = function(world, x, y, radius) {

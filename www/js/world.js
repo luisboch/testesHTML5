@@ -15,8 +15,9 @@ GWorld.setup = function() {
     var worldAABB = new b2AABB();
     worldAABB.minVertex.Set(-1000, -1000);
     worldAABB.maxVertex.Set(1000, 1000);
+    
     var gravity = new b2Vec2(0, 0);
-    var doSleep = true;
+    var doSleep = false;
     GWorld.b2d.world = new b2World(worldAABB, gravity, doSleep);
 
     GUtils.createGround(GWorld.b2d.world);
@@ -31,8 +32,7 @@ GWorld.setup = function() {
             var h = GWorld._handlers[i];
             h();
         }
-
-    }, 60/1);
+    }, 1/60);
 
 };
 
