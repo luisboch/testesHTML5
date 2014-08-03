@@ -3,9 +3,12 @@ var jump;
 jQuery(document).ready(function() {
 
     var canvas = jQuery('#container').get(0);
-
-    canvasWidth = parseInt(jQuery(canvas).outerWidth(false));
-    canvasHeight = parseInt(jQuery(canvas).outerHeight(false));
+    
+    jQuery(canvas).attr("width", GConfig.WORLD_SIZE+'px');
+    jQuery(canvas).attr("height", GConfig.WORLD_SIZE+'px');
+    
+    canvasWidth = parseInt(GConfig.WORLD_SIZE);
+    canvasHeight = parseInt(GConfig.WORLD_SIZE);
     canvasTop = 0;
     canvasLeft = 0;
 

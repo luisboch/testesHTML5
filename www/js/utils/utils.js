@@ -3,11 +3,11 @@ var GUtils = {};
 
 GUtils.createGround = function(world) {
     var groundSd = new b2BoxDef();
-    groundSd.extents.Set(1000, 50);
+    groundSd.extents.Set(GConfig.WORLD_SIZE, GConfig.WORLD_SIZE / 100);
     groundSd.restitution = 0.2;
     var groundBd = new b2BodyDef();
     groundBd.AddShape(groundSd);
-    groundBd.position.Set(0, 800);
+    groundBd.position.Set(0, GConfig.WORLD_SIZE - (GConfig.WORLD_SIZE * 0.01));
     return world.CreateBody(groundBd);
 };
 
