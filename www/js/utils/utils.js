@@ -24,18 +24,18 @@ GUtils.createBox = function(world, x, y, width, height, fixed) {
     return world.CreateBody(boxBd);
 };
 
-GUtils.createPlayer = function(world, x, y, width, height) {
+GUtils.createPlayer = function(world, x, y, radius) {
 
-    var boxSd = new b2BoxDef();
-    boxSd.restitution = 0;
-    boxSd.density = 0;
-    boxSd.friction = 0
-    boxSd.extents.Set(width, height);
-    var boxBd = new b2BodyDef();
-    boxBd.AddShape(boxSd);
-    boxBd.position.Set(x, y);
+    var ballSd = new b2CircleDef();
+    ballSd.restitution = 0;
+    ballSd.density = 1;
+    ballSd.friction = 0;
+    ballSd.radius = (typeof radius === 'undefined' ? 20 : radius);
+    var ballBd = new b2BodyDef();
+    ballBd.AddShape(ballSd);
+    ballBd.position.Set(x, y);
 
-    return world.CreateBody(boxBd);
+    return world.CreateBody(ballBd);
 };
 
 GUtils.createBall = function(world, x, y, radius) {

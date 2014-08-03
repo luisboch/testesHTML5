@@ -23,6 +23,7 @@ GWorld.setup = function() {
     GUtils.createGround(GWorld.b2d.world);
     GUtils.createBox(GWorld.b2d.world, 0, 250, 10, 500);
     GUtils.createBox(GWorld.b2d.world, 1000, 250, 10, 500);
+    GUtils.createBox(GWorld.b2d.world, 0, 0, 1000, 10);
 
     window.setInterval(function() {
 
