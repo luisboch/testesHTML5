@@ -5,7 +5,9 @@ function Player() {
             GWorld.b2d.world,
             canvasWidth / 2 - 5,
             canvasHeight / 2 - 8.5, 30);
+    this.b2d.element.isPlayer = true;
     var _player = this;
+    
 
     GWorld.handler(function() {
 

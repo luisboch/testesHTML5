@@ -30,18 +30,20 @@ GWorld.setup = function() {
 
     window.setInterval(function() {
 
-        GWorld.b2d.world.Step(1 / 30, 3);
+        GWorld.b2d.world.Step(1 / 20, 3);
 
         for (i = 0; i < GWorld._handlers.length; i++) {
-            var h = GWorld._handlers[i];
-            h();
+            var fn = GWorld._handlers[i];
+            if (fn) {
+                fn();
+            }
         }
-    }, 1 / 60);
+    }, 1 / 20);
 
 };
 
 GWorld.init = function() {
-    GWorld.b2d.world.Step(1 / 30, 10);
+
 };
 
 GWorld.handler = function(fn) {

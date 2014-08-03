@@ -3,11 +3,11 @@ var GUtils = {};
 
 GUtils.createGround = function(world) {
     var groundSd = new b2BoxDef();
-    groundSd.extents.Set(GConfig.WORLD_SIZE, GConfig.WORLD_SIZE / 100);
+    groundSd.extents.Set(GConfig.WORLD_SIZE, GConfig.WORLD_SIZE * 0.01);
     groundSd.restitution = 0.2;
     var groundBd = new b2BodyDef();
     groundBd.AddShape(groundSd);
-    groundBd.position.Set(0, GConfig.WORLD_SIZE - (GConfig.WORLD_SIZE * 0.01));
+    groundBd.position.Set(0, GConfig.WORLD_SIZE - (GConfig.WORLD_SIZE * 0.001));
     return world.CreateBody(groundBd);
 };
 
@@ -34,6 +34,7 @@ GUtils.createPlayer = function(world, x, y, radius) {
     var ballBd = new b2BodyDef();
     ballBd.AddShape(ballSd);
     ballBd.position.Set(x, y);
+    ballSd.isPlayer = true;
 
     return world.CreateBody(ballBd);
 };
@@ -101,7 +102,14 @@ GUtils.drawJoint = function(joint, context) {
 };
 
 GUtils.drawShape = function(shape, context) {
-    context.strokeStyle = '#ffffff';
+    
+    if(shape.isPlayer){
+        context.strokeStyle = '#000';
+        context.fillStyle = '#000';
+    } else {
+        context.strokeStyle = '#676bFA';
+        context.fillStyle = '#232ef7';
+    }
     context.beginPath();
     switch (shape.m_type) {
         case b2Shape.e_circleShape:
@@ -142,6 +150,7 @@ GUtils.drawShape = function(shape, context) {
             }
             break;
     }
+    context.fill();
     context.stroke();
 };
 
