@@ -27,7 +27,7 @@ jQuery(document).ready(function() {
             context.clearRect(0, 0, canvasWidth, canvasHeight);
             GUtils.debugWorld(GWorld.b2d.world, context);
         }
-        
+
 //        if (counter % 50 === 0) {
 //            var pos = GWorld.player.b2d.element.m_position;
 //            console.log("Player pos X:" + pos.x + ", Y" + pos.y);
