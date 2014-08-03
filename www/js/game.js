@@ -15,10 +15,7 @@ jQuery(document).ready(function() {
     GWorld.init();
     KeyBoard.setup();
 
-    var player =
-            GUtils.createPlayer(GWorld.b2d.world, canvasWidth / 2 - 5, canvasHeight / 2 - 8.5, 10, 17.0, false);
     GWorld.player = new Player();
-    GWorld.player.b2d.element = player;
 
     GWorld.counter = 0
     GWorld.handler(function() {
@@ -27,11 +24,6 @@ jQuery(document).ready(function() {
             context.clearRect(0, 0, canvasWidth, canvasHeight);
             GUtils.debugWorld(GWorld.b2d.world, context);
         }
-
-//        if (counter % 50 === 0) {
-//            var pos = GWorld.player.b2d.element.m_position;
-//            console.log("Player pos X:" + pos.x + ", Y" + pos.y);
-//        }
 
         GWorld.counter++;
     });
